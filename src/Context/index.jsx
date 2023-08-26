@@ -8,11 +8,25 @@ function CartContextProvider ({children}){
     
     //Product detail --- Open/Close
     const [showProdDetail, setShowProdDetail] = React.useState(false)
-    const openProductDetail = () => {setShowProdDetail(true)}
+    const openProductDetail = () => {
+        setShowProdDetail(true)
+        setShowCheckoutMenu(false)
+    }
     const closeProductDetail = () => setShowProdDetail(false)
+
+    //Product checkout --- Open/Close
+    const [showCheckoutMenu, setShowCheckoutMenu] = React.useState(false)
+    const openCheckoutMenu = () => {
+        setShowCheckoutMenu(true)
+        setShowProdDetail(false)
+    }
+    const closeCheckoutMenu = () => setShowCheckoutMenu(false)
 
     //Produt details/description
     const [productDetails, setProductDetails] = React.useState({})
+
+    //Shopping cart --- Add products to cart
+    const [cartProducts, setCartProducts] = React.useState([])
 
     return (
         <CartContext.Provider value={{
@@ -22,7 +36,13 @@ function CartContextProvider ({children}){
             openProductDetail,
             closeProductDetail,
             productDetails, 
-            setProductDetails
+            setProductDetails,
+            cartProducts, 
+            setCartProducts,
+            showCheckoutMenu, 
+            setShowCheckoutMenu,
+            openCheckoutMenu,
+            closeCheckoutMenu
         }}>
             {children}
         </CartContext.Provider>

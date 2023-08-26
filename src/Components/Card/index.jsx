@@ -6,12 +6,24 @@ function Card({data}) {
   const {
     setCount,
     openProductDetail,
-    setProductDetails
+    setProductDetails,
+    cartProducts, 
+    setCartProducts,
+    closeCheckoutMenu,
+    openCheckoutMenu
   } = React.useContext(CartContext)
 
   const showProduct = (details) => {
     openProductDetail()
+    closeCheckoutMenu()
     setProductDetails(details)
+  }
+
+  const AddProducts = (event, product) => {
+    event.stopPropagation()
+    setCount((state) => state+1)
+    setCartProducts([...cartProducts, product])
+    openCheckoutMenu()
   }
 
   return (
@@ -27,7 +39,7 @@ function Card({data}) {
             alt={data.description} 
           />
           <div 
-            onClick={() => setCount((state) => state+1)} 
+            onClick={(event) => AddProducts(event,data)} 
             className='absolute top-0 right-0 flex justify-center 
             items-center bg-cyan-200 rounded-full h-6 w-6'>
             <PlusIcon className='h-4 w-4 text-black '/>

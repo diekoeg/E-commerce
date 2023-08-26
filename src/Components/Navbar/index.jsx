@@ -8,7 +8,7 @@ function Navbar() {
   const activeStyle = 'underline underline-offset-4'
   const {
     count,
-    setCount
+    openCheckoutMenu
   } = React.useContext(CartContext)
 
   return (
@@ -102,7 +102,8 @@ function Navbar() {
           </NavItem>
         </li>
 
-        <li className='flex flex-row items-center'>
+        <li onClick={() => openCheckoutMenu()} 
+          className='flex flex-row items-center cursor-pointer'>
           <ShoppingCartIcon className='h-6 w-6 text-black '/>
           {count}
         </li>

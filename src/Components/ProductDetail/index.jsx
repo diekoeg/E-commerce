@@ -11,8 +11,8 @@ function ProductDetail() {
   } = React.useContext(CartContext)
 
   return (
-    <aside className={`${!showProdDetail && 'hidden'} flex flex-col fixed right-0 border bg-white
-     border-black rounded-lg w-[360px] h-[calc(100%-100px)]`}>
+    <aside className={`${!showProdDetail && 'w-0 h-0 border-none'} flex flex-col fixed right-0 border bg-white
+     border-black rounded-lg w-[360px] h-[calc(100%-100px)] transition-all`}>
       <div className='flex justify-between items-center p-6'>
         <h2 className='font-medium text-xl'>
           Item detail
