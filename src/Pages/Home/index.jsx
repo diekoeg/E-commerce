@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import Layout from '../../Components/Layout'
 import Card from '../../Components/Card'
 import ProductDetail from '../../Components/ProductDetail'
+import { CartContext } from '../../Context'
 
 function Home() {
   const [items, setItems] = React.useState(null)
