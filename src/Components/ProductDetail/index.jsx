@@ -1,4 +1,5 @@
 import React from 'react'
+
 import {XMarkIcon } from '@heroicons/react/24/solid'
 import { CartContext } from '../../Context'
 
@@ -11,8 +12,8 @@ function ProductDetail() {
   } = React.useContext(CartContext)
 
   return (
-    <aside className={`${!showProdDetail && 'w-0 h-0 border-none'} flex flex-col fixed right-0 border bg-white
-     border-black rounded-lg w-[360px] h-[calc(100%-100px)] transition-all`}>
+    <aside className={`${!showProdDetail ? 'w-0 h-0 border-none': 'w-[360px] h-[calc(100%-200px)]'} 
+    flex flex-col fixed right-0 border bg-white border-black rounded-lg transition-all`}>
       <div className='flex justify-between items-center p-6'>
         <h2 className='font-medium text-xl'>
           Item detail
@@ -31,6 +32,7 @@ function ProductDetail() {
         <span className='font-medium text-md'>{productDetails.title}</span> 
         <span className='font-light text-sm'>{productDetails.description} </span>
       </p>
+
     </aside>
   )
 }

@@ -28,6 +28,10 @@ function CartContextProvider ({children}){
     //Shopping cart --- Add products to cart
     const [cartProducts, setCartProducts] = React.useState([])
 
+    ///Shopping cart -- Order
+    const [order, setOrder] = React.useState([])
+
+
     return (
         <CartContext.Provider value={{
             count,
@@ -42,7 +46,9 @@ function CartContextProvider ({children}){
             showCheckoutMenu, 
             setShowCheckoutMenu,
             openCheckoutMenu,
-            closeCheckoutMenu
+            closeCheckoutMenu,
+            order, 
+            setOrder
         }}>
             {children}
         </CartContext.Provider>
